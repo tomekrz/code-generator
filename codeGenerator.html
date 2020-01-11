@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>generator kodow</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        button {
+            margin-bottom: 30px;
+        }
+
+        ul {
+            text-align: justify;
+        }
+
+        li {
+            list-style: none;
+            padding: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <button>Generuj</button>
+    <section id="code"></section>
+    <script>
+        const chars = "ABCDEFGHIJK0123456789";
+        const btn = document.querySelector("button");
+        const section = document.getElementById("code");
+        const codesNumber = 100;
+        const charsNumber = 10;
+        const generateCode = function () {
+            section.textContent = "";
+            for (let i = 0; i < codesNumber; i++) {
+
+                const liElement = document.createElement("li");
+                let code = "";
+                for (let i = 0; i < charsNumber; i++) {
+                    let j = Math.floor(Math.random() * chars.length);
+                    code += chars[j]
+                }
+
+
+                liElement.textContent = code;
+                section.appendChild(liElement);
+
+
+
+            }
+
+        }
+        btn.addEventListener("click", generateCode);
+    </script>
+</body>
+
+</html>
